@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Beatriz Araujo | Psicóloga Clínica | Terapia Cognitivo-Comportamental (TCC). Atendimento psicológico para adultos e idosos." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#eef6fb" />
+  <title>Beatriz Araujo | Psicóloga Clínica | TCC</title>
+  <style>
+    :root {
+      --bg: #f8fbfd;
+      --surface: #ffffff;
+      --soft: #eef6fb;
+      --soft-2: #e2f0f8;
+      --primary: #4f83a1;
+      --primary-dark: #315f7a;
+      --text: #23333d;
+      --muted: #647580;
+      --line: #dbe7ed;
+      --shadow: 0 12px 35px rgba(49, 95, 122, .09);
+      --radius: 22px;
+      --radius-sm: 14px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .section { padding: 100px 0; }
+    .section-alt { background: var(--soft); }
+    .eyebrow {
+      display: inline-block;
+      color: var(--primary-dark);
+      font-size: .86rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1, h2, h3 { line-height: 1.2; margin-top: 0; }
+    h1 { font-size: clamp(2.6rem, 6vw, 5rem); letter-spacing: -.045em; margin-bottom: 18px; }
+    h2 { font-size: clamp(2rem, 4vw, 3.1rem); letter-spacing: -.035em; margin-bottom: 18px; }
+    h3 { font-size: 1.25rem; margin-bottom: 8px; }
+    p { color: var(--muted); margin: 0 0 16px; }
+
+    .skip-link {
+      position: fixed;
+      left: 12px;
+      top: -100px;
+      background: var(--primary-dark);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 8px;
+      z-index: 1000;
+    }
+    .skip-link:focus { top: 12px; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(248, 251, 253, .88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(219, 231, 237, .7);
+    }
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .brand { font-weight: 750; color: var(--primary-dark); letter-spacing: -.02em; font-size: 1.1rem; }
+    .brand span { display: block; font-size: .72rem; font-weight: 500; color: var(--muted); letter-spacing: 0; }
+    .nav-links { display: flex; gap: 22px; align-items: center; }
+    .nav-links a { color: var(--muted); font-size: .93rem; }
+    .nav-links a:hover { color: var(--primary-dark); }
+
+    .menu-button {
+      display: none;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      cursor: pointer;
+      color: var(--primary-dark);
+    }
+
+    .hero {
+      padding: 88px 0 100px;
+      background:
+        radial-gradient(circle at 12% 15%, rgba(178, 218, 237, .42), transparent 27%),
+        radial-gradient(circle at 88% 10%, rgba(213, 234, 244, .75), transparent 30%),
+        var(--bg);
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      align-items: center;
+      gap: 70px;
+      min-height: 590px;
+    }
+    .hero-copy { max-width: 720px; }
+    .hero-copy h1 span { color: var(--primary); }
+    .hero-copy .subtitle { font-size: clamp(1.08rem, 2vw, 1.35rem); max-width: 650px; }
+    .hero-copy .intro { max-width: 600px; margin-top: 18px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(49,95,122,.12); }
+    .btn:focus-visible, .menu-button:focus-visible, .faq-question:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 3px solid rgba(79,131,161,.35);
+      outline-offset: 3px;
+    }
+    .btn-primary { background: var(--primary-dark); color: #fff; }
+    .btn-secondary { background: rgba(255,255,255,.7); border-color: var(--line); color: var(--primary-dark); }
+
+    .hero-card {
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,255,255,.85);
+      box-shadow: var(--shadow);
+      border-radius: 32px;
+      padding: 34px;
+    }
+    .hero-card .line { width: 54px; height: 3px; background: var(--primary); border-radius: 20px; margin-bottom: 22px; }
+    .hero-card strong { display: block; color: var(--primary-dark); font-size: 1.35rem; margin-bottom: 12px; }
+    .hero-card small { color: var(--muted); display: block; margin-top: 18px; }
+
+    .about-grid, .tcc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: start; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: 0 8px 26px rgba(49,95,122,.045);
+    }
+    .info-list { list-style: none; padding: 0; margin: 22px 0 0; }
+    .info-list li { padding: 13px 0; border-bottom: 1px solid var(--line); color: var(--muted); }
+    .info-list li:last-child { border-bottom: 0; }
+    .info-list strong { color: var(--text); }
+
+    .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 38px; }
+    .feature { padding: 28px; border-radius: var(--radius-sm); background: var(--surface); border: 1px solid var(--line); }
+    .feature-number {
+      width: 36px; height: 36px; display: grid; place-items: center;
+      border-radius: 50%; background: var(--soft-2); color: var(--primary-dark); font-weight: 800; margin-bottom: 18px;
+    }
+
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 42px; }
+    .step { padding: 26px; border-left: 2px solid var(--soft-2); }
+    .step b { color: var(--primary-dark); font-size: 1.1rem; }
+    .step span { display: block; color: var(--primary); font-weight: 800; margin-bottom: 12px; }
+
+    .form-wrap { max-width: 900px; margin: 38px auto 0; }
+    form { background: var(--surface); border: 1px solid var(--line); border-radius: 26px; padding: 34px; box-shadow: var(--shadow); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .field { display: flex; flex-direction: column; gap: 8px; }
+    .field.full { grid-column: 1 / -1; }
+    label { font-weight: 650; font-size: .94rem; }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #fcfeff;
+      color: var(--text);
+      border-radius: 12px;
+      padding: 14px 15px;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(79,131,161,.10); outline: none; }
+    textarea { min-height: 125px; resize: vertical; }
+    .hint { font-size: .83rem; color: var(--muted); }
+    .checkbox {
+      display: flex; align-items: flex-start; gap: 10px; margin: 22px 0;
+      color: var(--muted); font-size: .92rem;
+    }
+    .checkbox input { width: 18px; height: 18px; margin-top: 4px; flex: 0 0 auto; }
+    .notice { margin-top: 24px; padding: 18px 20px; border-radius: 14px; background: var(--soft); border-left: 3px solid var(--primary); }
+    .notice p { margin: 0; font-size: .92rem; }
+    .form-message {
+      display: none; margin-top: 18px; padding: 15px 18px; border-radius: 12px;
+      background: #eef8f3; border: 1px solid #cfe8db; color: #285c43;
+    }
+    .form-message.show { display: block; }
+
+    .faq { max-width: 860px; margin: 40px auto 0; }
+    .faq-item { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; margin-bottom: 12px; overflow: hidden; }
+    .faq-question {
+      width: 100%; text-align: left; background: transparent; border: 0;
+      padding: 20px 22px; cursor: pointer; color: var(--text); font-weight: 700;
+      display: flex; justify-content: space-between; gap: 20px;
+    }
+    .faq-question::after { content: "+"; color: var(--primary); font-size: 1.3rem; transition: transform .2s ease; }
+    .faq-item.open .faq-question::after { transform: rotate(45deg); }
+    .faq-answer { display: none; padding: 0 22px 20px; }
+    .faq-item.open .faq-answer { display: block; }
+
+    .contact-box {
+      text-align: center; max-width: 760px; margin: 0 auto;
+      background: linear-gradient(135deg, var(--soft), #fff);
+      border: 1px solid var(--line); padding: 60px 32px; border-radius: 30px;
+    }
+    .contact-box .whatsapp { margin-top: 10px; color: var(--primary-dark); font-size: 1.2rem; font-weight: 750; }
+
+    footer { padding: 36px 0; border-top: 1px solid var(--line); background: #fff; }
+    .footer-content { text-align: center; }
+    .footer-content p { margin: 4px 0; font-size: .9rem; }
+    .full-name { font-size: .8rem !important; color: #89979f !important; }
+
+    .whatsapp-float {
+      position: fixed; right: 22px; bottom: 22px; z-index: 80;
+      width: 56px; height: 56px; border-radius: 50%;
+      display: grid; place-items: center; background: var(--primary-dark); color: #fff;
+      box-shadow: 0 12px 28px rgba(49,95,122,.24); font-size: 1.25rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .about-grid, .tcc-grid { grid-template-columns: 1fr; gap: 38px; }
+      .hero-card { max-width: 520px; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .nav-links {
+        display: none; position: absolute; top: 76px; left: 20px; right: 20px;
+        flex-direction: column; align-items: stretch; padding: 18px;
+        background: #fff; border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow);
+      }
+      .nav-links.open { display: flex; }
+      .menu-button { display: block; }
+    }
+
+    @media (max-width: 620px) {
+      .container { width: min(100% - 28px, 1120px); }
+      .section { padding: 72px 0; }
+      .hero { padding: 58px 0 74px; }
+      .hero-grid { min-height: auto; }
+      .hero-card, form { padding: 24px 18px; }
+      .form-grid, .steps { grid-template-columns: 1fr; }
+      .actions { flex-direction: column; }
+      .actions .btn { width: 100%; }
+      h1 { font-size: clamp(2.5rem, 13vw, 4rem); }
+      .whatsapp-float { right: 16px; bottom: 16px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo principal</a>
+
+  <header>
+    <div class="container nav">
+      <a href="#inicio" class="brand" aria-label="Página inicial de Beatriz Araujo">
+        Beatriz Araujo
+        <span>Psicóloga Clínica | CRP 05/88426</span>
+      </a>
+
+      <button class="menu-button" id="menuButton" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+
+      <nav class="nav-links" id="navLinks" aria-label="Navegação principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#atendimento">Atendimento</a>
+        <a href="#tcc">TCC</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#lista-espera">Lista de espera</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Psicóloga Clínica</div>
+          <h1>Beatriz <span>Araujo</span></h1>
+          <p class="subtitle">Terapia Cognitivo-Comportamental (TCC)</p>
+          <p class="intro">Um espaço de escuta, acolhimento e cuidado para você.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#lista-espera">Entrar na lista de espera</a>
+            <a class="btn btn-secondary" href="https://wa.me/5521966090997?text=Ol%C3%A1%2C%20Beatriz%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20psicol%C3%B3gico%20e%20a%20lista%20de%20espera." target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Informações sobre o atendimento">
+          <div class="line"></div>
+          <strong>Atendimento psicológico individualizado</strong>
+          <p>Para adultos e idosos, considerando a história, as necessidades e os objetivos de cada pessoa.</p>
+          <small>Sessões com duração aproximada de 60 minutos.</small>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="container about-grid">
+        <div>
+          <div class="eyebrow">Sobre</div>
+          <h2>Um espaço para olhar com atenção para o que você está vivendo.</h2>
+          <p>Sou Beatriz Araujo, Psicóloga Clínica, e realizo atendimentos para adultos e idosos a partir da Terapia Cognitivo-Comportamental (TCC).</p>
+          <p>O acompanhamento psicológico é construído de forma individualizada, respeitando a história, o momento e as necessidades de cada pessoa.</p>
+          <p class="full-name">Nome completo: Beatriz Fernanda de Araujo da Cunha.</p>
+        </div>
+
+        <div class="card">
+          <ul class="info-list">
+            <li><strong>Profissão:</strong> Psicóloga Clínica</li>
+            <li><strong>Abordagem:</strong> Terapia Cognitivo-Comportamental (TCC)</li>
+            <li><strong>Público:</strong> Adultos e idosos</li>
+            <li><strong>CRP:</strong> 05/88426</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="atendimento">
+      <div class="container">
+        <div class="eyebrow">Atendimento</div>
+        <h2>Um atendimento pensado para você</h2>
+        <p style="max-width:780px;">Cada pessoa chega à psicoterapia com uma história, necessidades e objetivos próprios. Por isso, o acompanhamento é construído de forma individualizada, considerando as questões que você está vivenciando no momento.</p>
+
+        <div class="feature-grid">
+          <article class="feature">
+            <div class="feature-number">01</div>
+            <h3>Escuta individualizada</h3>
+            <p>O processo é pensado de acordo com a sua história, seu momento e suas necessidades.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-number">02</div>
+            <h3>Diferentes demandas</h3>
+            <p>Questões relacionadas à ansiedade, autoestima, relacionamentos, autoconhecimento, dificuldades emocionais, mudanças de vida e medos podem aparecer, entre outras questões.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-number">03</div>
+            <h3>Um processo construído em conjunto</h3>
+            <p>O acompanhamento considera diferentes demandas psicológicas e é desenvolvido de acordo com as necessidades de cada pessoa.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tcc">
+      <div class="container tcc-grid">
+        <div class="card">
+          <div class="eyebrow">Abordagem</div>
+          <h2>Terapia Cognitivo-Comportamental</h2>
+          <p>A TCC é uma abordagem que busca compreender a relação entre pensamentos, emoções e comportamentos.</p>
+          <p>Ao longo do processo, são trabalhadas estratégias e possibilidades de acordo com as necessidades e os objetivos de cada pessoa.</p>
+        </div>
+        <div>
+          <h3>Uma compreensão mais acessível do que você vive</h3>
+          <p>A psicoterapia pode ser um espaço para observar padrões, compreender experiências e desenvolver novas formas de lidar com situações do cotidiano.</p>
+          <p>O processo é individual e não envolve promessas de resultados ou garantias, pois cada pessoa vivencia sua trajetória de maneira própria.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="como-funciona">
+      <div class="container">
+        <div class="eyebrow">Como funciona</div>
+        <h2>Um caminho simples para demonstrar seu interesse</h2>
+        <div class="steps">
+          <div class="step"><span>1</span><b>Você demonstra interesse</b><p>Conhece as informações sobre o atendimento e decide manifestar seu interesse.</p></div>
+          <div class="step"><span>2</span><b>Preenche a lista de espera</b><p>Você informa os dados necessários para que o contato possa ser realizado posteriormente.</p></div>
+          <div class="step"><span>3</span><b>Havendo disponibilidade</b><p>Entrarei em contato conforme houver disponibilidade compatível.</p></div>
+          <div class="step"><span>4</span><b>Alinhamento inicial</b><p>Serão alinhadas as informações necessárias para um possível início do acompanhamento.</p></div>
+        </div>
+        <p style="margin-top:28px;"><strong>Sessões com duração aproximada de 60 minutos.</strong></p>
+      </div>
+    </section>
+
+    <section class="section" id="lista-espera">
+      <div class="container">
+        <div style="text-align:center; max-width:760px; margin:0 auto;">
+          <div class="eyebrow">Manifestação de interesse</div>
+          <h2>Entre na lista de espera</h2>
+          <p>Se você tem interesse em iniciar um acompanhamento psicológico, pode preencher o formulário abaixo. Havendo disponibilidade, entrarei em contato para as orientações necessárias.</p>
+        </div>
+
+        <div class="form-wrap">
+          <form id="waitlistForm" novalidate>
+            <div class="form-grid">
+              <div class="field">
+                <label for="nome">Nome completo *</label>
+                <input id="nome" name="nome" type="text" autocomplete="name" required />
+              </div>
+
+              <div class="field">
+                <label for="whatsapp">WhatsApp *</label>
+                <input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" required />
+              </div>
+
+              <div class="field">
+                <label for="email">E-mail *</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </div>
+
+              <div class="field">
+                <label for="faixa-etaria">Faixa etária *</label>
+                <select id="faixa-etaria" name="faixa-etaria" required>
+                  <option value="">Selecione</option>
+                  <option>18 a 29 anos</option>
+                  <option>30 a 44 anos</option>
+                  <option>45 a 59 anos</option>
+                  <option>60 anos ou mais</option>
+                </select>
+              </div>
+
+              <div class="field full">
+                <label for="motivo">O que motivou a busca por atendimento? *</label>
+                <textarea id="motivo" name="motivo" required placeholder="Você pode compartilhar de forma geral o motivo do seu interesse em buscar acompanhamento psicológico."></textarea>
+                <span class="hint">Evite inserir informações clínicas extremamente sensíveis ou desnecessárias neste formulário.</span>
+              </div>
+
+              <div class="field">
+                <label for="periodo">Preferência de período *</label>
+                <select id="periodo" name="periodo" required>
+                  <option value="">Selecione</option>
+                  <option>Manhã</option>
+                  <option>Tarde</option>
+                  <option>Noite</option>
+                  <option>Sem preferência</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="mensagem">Mensagem adicional (opcional)</label>
+                <input id="mensagem" name="mensagem" type="text" />
+              </div>
+            </div>
+
+            <div class="checkbox">
+              <input id="confirmacao" name="confirmacao" type="checkbox" required />
+              <label for="confirmacao">Li e estou ciente de que o preenchimento deste formulário demonstra interesse no atendimento e não garante uma vaga ou o início do acompanhamento psicológico.</label>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Enviar manifestação de interesse</button>
+
+            <div class="form-message" id="formMessage" role="status" aria-live="polite"></div>
+
+            <div class="notice">
+              <p>O preenchimento deste formulário demonstra interesse no atendimento e não garante uma vaga ou o início do acompanhamento psicológico. Havendo disponibilidade, entrarei em contato para as orientações necessárias.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="faq">
+      <div class="container">
+        <div style="text-align:center;">
+          <div class="eyebrow">Dúvidas frequentes</div>
+          <h2>Perguntas frequentes</h2>
+        </div>
+
+        <div class="faq">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Quem pode entrar na lista de espera?</button>
+            <div class="faq-answer"><p>Adultos e idosos interessados em acompanhamento psicológico.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Qual é a duração das sessões?</button>
+            <div class="faq-answer"><p>Aproximadamente 60 minutos.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Qual abordagem é utilizada?</button>
+            <div class="faq-answer"><p>Terapia Cognitivo-Comportamental (TCC).</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">O preenchimento da lista garante uma vaga?</button>
+            <div class="faq-answer"><p>Não. O cadastro demonstra interesse e o contato será realizado conforme disponibilidade.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Quais questões podem ser trabalhadas?</button>
+            <div class="faq-answer"><p>O atendimento é individualizado e pode contemplar diferentes demandas psicológicas, de acordo com as necessidades de cada pessoa.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Como entro em contato?</button>
+            <div class="faq-answer"><p>Pelo WhatsApp disponibilizado no site.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contato">
+      <div class="container">
+        <div class="contact-box">
+          <div class="eyebrow">Contato</div>
+          <h2>Fale pelo WhatsApp</h2>
+          <p>Se preferir, você também pode entrar em contato para saber mais sobre o atendimento psicológico e a lista de espera.</p>
+          <div class="whatsapp">(21) 96609-0997</div>
+          <div class="actions" style="justify-content:center;">
+            <a class="btn btn-primary" href="https://wa.me/5521966090997?text=Ol%C3%A1%2C%20Beatriz%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20psicol%C3%B3gico%20e%20a%20lista%20de%20espera." target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <p><strong>Beatriz Araujo | Psicóloga Clínica</strong></p>
+      <p>CRP 05/88426</p>
+      <p class="full-name">Beatriz Fernanda de Araujo da Cunha</p>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/5521966090997?text=Ol%C3%A1%2C%20Beatriz%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20psicol%C3%B3gico%20e%20a%20lista%20de%20espera." target="_blank" rel="noopener noreferrer" aria-label="Falar com Beatriz Araujo pelo WhatsApp">✆</a>
+
+  <script>
+    // Menu responsivo
+    const menuButton = document.getElementById('menuButton');
+    const navLinks = document.getElementById('navLinks');
+
+    menuButton.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.textContent = isOpen ? '×' : '☰';
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.textContent = '☰';
+      });
+    });
+
+    // FAQ em acordeão
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.parentElement;
+        const isOpen = item.classList.contains('open');
+
+        document.querySelectorAll('.faq-item').forEach(other => {
+          other.classList.remove('open');
+          other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+
+        if (!isOpen) {
+          item.classList.add('open');
+          button.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Máscara simples para WhatsApp
+    const whatsapp = document.getElementById('whatsapp');
+    whatsapp.addEventListener('input', (event) => {
+      let value = event.target.value.replace(/\D/g, '').slice(0, 11);
+      if (value.length > 6) {
+        value = value.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+      } else if (value.length > 2) {
+        value = value.replace(/(\d{2})(\d{0,5})/, '($1) $2');
+      } else if (value.length > 0) {
+        value = value.replace(/(\d*)/, '($1');
+      }
+      event.target.value = value;
+    });
+
+    // Formulário sem backend.
+    // A função abaixo foi deixada organizada para facilitar futura integração
+    // com um backend, banco de dados ou serviço de formulários.
+    const form = document.getElementById('waitlistForm');
+    const formMessage = document.getElementById('formMessage');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      formMessage.classList.remove('show');
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      /*
+        PONTO DE INTEGRAÇÃO FUTURA:
+        Aqui você poderá enviar os dados do formulário para um backend
+        ou serviço de armazenamento/envio usando fetch() ou uma integração externa.
+
+        Exemplo:
+        const formData = new FormData(form);
+        await fetch('SUA_URL_AQUI', {
+          method: 'POST',
+          body: formData
+        });
+      */
+
+      formMessage.innerHTML =
+        '<strong>Manifestação de interesse registrada nesta página.</strong><br>' +
+        'Este formulário ainda não está conectado a um serviço de armazenamento ou envio. ' +
+        'Para que a lista de espera funcione de forma real e os dados sejam recebidos, será necessário conectar posteriormente o formulário a um backend ou serviço apropriado.';
+
+      formMessage.classList.add('show');
+      formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      form.reset();
+    });
+  </script>
+</body>
+</html>
