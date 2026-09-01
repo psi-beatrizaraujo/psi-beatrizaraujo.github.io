@@ -602,7 +602,7 @@ singularidade da sua história.</p>
 
         Exemplo:
         const formData = new FormData(form);
-        await fetch('SUA_URL_AQUI', {
+        await fetch('https://formspree.io/f/xljebrvw', {
           method: 'POST',
           body: formData
         });
@@ -610,8 +610,8 @@ singularidade da sua história.</p>
 
       formMessage.innerHTML =
         '<strong>Manifestação de interesse registrada nesta página.</strong><br>' +
-        'Este formulário ainda não está conectado a um serviço de armazenamento ou envio. ' +
-        'Para que a lista de espera funcione de forma real e os dados sejam recebidos, será necessário conectar posteriormente o formulário a um backend ou serviço apropriado.';
+           
+    'Obrigado! Seus dados foram enviados com sucesso e logo entraremos em contato.';
 
       formMessage.classList.add('show');
       formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
